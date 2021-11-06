@@ -9,7 +9,7 @@ module.exports = {
     HOST: process.env.HOST || '127.0.0.1',
     PORT: process.env.PORT || 3000,
     PORT_ssl: process.env.PORT_ssl || 3031,
-    USER_bd: process.env.USER_bd || "root",
+    USER_bd: process.env.USER_bd || "pms",
     BD: process.env.BD || "precheck",
     PASS_bd: process.env.PASS_bd || "awsCheck-in2021",
     key: process.env.key || "/home/administrador/certs/oxford.key",

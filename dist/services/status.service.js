@@ -8,7 +8,7 @@ module.exports = {
             var var_sql = [
                 resv_name_id
             ];
-            var sql2 = "SELECT * FROM checkin where resv_name_id = ?;";
+            var sql2 = "SELECT * FROM checking where resv_name_id = ?;";
             mysqlCn.connectQuery(sql2, var_sql)
                 .then(function (resp) {
                 console.log("success setCheck:", resp);
@@ -30,7 +30,7 @@ module.exports = {
                 dateCheck,
                 hotel
             ];
-            var sql2 = "INSERT INTO `precheck`.`checkin` (`resv_name_id`, `insert`, `resort`) VALUES (?, ?, ?);";
+            var sql2 = "INSERT INTO `precheck`.`checking` (`resv_name_id`, `inserted`, `resort`) VALUES (?, ?, ?);";
             mysqlCn.connectQuery(sql2, var_sql)
                 .then(function (data) {
                 console.log("success statusCheck:", data.insertId);

@@ -117,7 +117,7 @@ module.exports = {
         var data = image.replace(/^data:image\/\w+;base64,/, '');
         var nameFileTitular = "DocId-" + titular + "." + type;
         // var pathtitular = "./docID/"+nameFileTitular;
-        var pathtitular = "/home/ubuntu/checkin proyect/new api/dist/docID/" + nameFileTitular; // to path centos
+        var pathtitular = "/home/ubuntu/serverAPI/dist/docID/" + nameFileTitular; // to path centos
         fileS.writeFile(pathtitular, data, { encoding: 'base64' }, function (err) {
             if (err) {
                 console.log(err);
@@ -277,7 +277,7 @@ module.exports = {
                         }
                     }
                     console.log(companion);
-                    fileS.readFile('/home/ubuntu/checkin proyect/new api/dist/docID/DocId-' + guest[0]['GUEST_NAME_ID'] + '.png', 'base64', function (err, dataimg) {
+                    fileS.readFile('/home/ubuntu/serverAPI/dist/docID/DocId-' + guest[0]['GUEST_NAME_ID'] + '.png', 'base64', function (err, dataimg) {
                         if (err) {
                             console.error(err);
                             return;
@@ -376,7 +376,7 @@ module.exports = {
     getPicDocId: function (resv_name_id) {
         return new Promise(function (resolve, reject) {
             var request = require('request').defaults({ encoding: null });
-            request.get('/home/ubuntu/checkin proyect/new api/dist/docID/DocId-' + resv_name_id + '.png', function (error, response, body) {
+            request.get('/home/ubuntu/serverAPI/dist/docID/DocId-' + resv_name_id + '.png', function (error, response, body) {
                 if (!error && response.statusCode == 200) {
                     var img64 = "data:" + response.headers["content-type"] + ";base64," + Buffer.from(body).toString('base64');
                     // console.log(img64);
@@ -456,7 +456,7 @@ module.exports = {
             .catch(function (err) {
             console.log("error set check-in:", err);
         });
-        var sql2 = "INSERT INTO `precheck`.`checkin` (`resv_name_id`, `insert`, `resort`) VALUES (?, ?, ?);";
+        var sql2 = "INSERT INTO `precheck`.`checking` (`resv_name_id`, `inserted`, `resort`) VALUES (?, ?, ?);";
         mysqlCn.connectQuery(sql2, var_sql)
             .then(function (data) {
             console.log("success statusCheck:", data.insertId);

@@ -379,7 +379,7 @@ module.exports = {
             var var_sql = [
                 resv_name_id
             ];
-            var sql2 = "SELECT * FROM checkin where resv_name_id = ?;";
+            var sql2 = "SELECT * FROM checking where resv_name_id = ?;";
             mysqlCn.connectQuery(sql2, var_sql)
                 .then(function (resp) {
                 console.log("success setCheck:", resp);
