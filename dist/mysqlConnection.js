@@ -2,10 +2,10 @@
 var config = require('./config');
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-    host: config.HOST,
-    user: config.USER_bd,
-    password: config.PASS_bd,
-    database: config.BD
+    host: "localhost",
+    user: "root",
+    password: "awsCheck-in2021",
+    database: "precheck"
 });
 module.exports = {
     connectQuery: function (query, values) {
